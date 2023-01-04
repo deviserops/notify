@@ -1,0 +1,51 @@
+.notify__container {
+    position: fixed;
+    min-width: 10%;
+    max-width: 50%;
+    width: auto;
+}
+
+.notify__container.top-right {
+    top: 30px;
+    right: 30px;
+}
+
+.notify__container.top-left {
+    top: 30px;
+    left: 30px;
+}
+
+.notify__container.top-center {
+    top: 30px;
+    left: 50%;
+    align-items: center;
+}
+
+.notify__container .notify__danger,
+.notify__container .notify__info,
+.notify__container .notify__success,
+.notify__container .notify__warning,
+.notify__container .notify__notice {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.notify__container .notify__danger {
+    border: 1px solid red;
+}
+
+.notify__container .notify__info {
+    border: 1px solid #86d3ef;
+}
+
+.notify__container .notify__success {
+    border: 1px solid #20f100;
+}
+
+.notify__container .notify__warning {
+    border: 1px solid #ffea69;
+}
+
+.notify__container .notify__notice {
+    border: 1px solid #8c8c8c;
+}
