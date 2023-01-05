@@ -32,7 +32,7 @@ notify = {
 
         //html
         self.notify.append_html()   // add notify defailt and hide it
-        self.notify.append_notify_type(type) // append appropriate class according to notification to apply css
+        self.notify.append_notify_type(type_to_use) // append appropriate class according to notification to apply css
         self.notify.append_notify_message(message)
         self.notify.display_notify()
         //display noty
@@ -88,7 +88,7 @@ notify = {
 notify.setup({
     html: '<div class="notify__message">This i </div>'
 })
-notify.show('danger', 'new')
+notify.show('error', 'new')
 notify.show('info', 'new')
 notify.show('success', 'new')
 notify.show('warning', 'nesdw')
