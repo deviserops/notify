@@ -6,7 +6,7 @@ notify = {
             title: typeof conf != 'undefined' && typeof conf.title == "boolean" ? conf.title : true,
             icon: typeof conf != 'undefined' && typeof conf.icon == "boolean" ? conf.icon : true,
             html: self.notify.html_layout(custom_html),
-            timeout: typeof conf != 'undefined' && conf.timeout ? conf.timeout : 5000, // auto remove timeout,
+            timeout: typeof conf != 'undefined' && conf.timeout ? conf.timeout : 4000, // auto remove timeout (in ms),
             position: self.notify.positions(position)
         }
     },
@@ -55,10 +55,7 @@ notify = {
          * Once all added we will display this
          */
         container = document.getElementsByClassName('notify__container')[0]
-        // container.lastElementChild.style.display = 'none'
-        // setTimeout(function () {
-        //     container.lastElementChild.remove()
-        // }, self.notify.config.timeout)
+        container.lastElementChild.style.display = 'none'
     },
     append_notify_type: function (type) {
         let container = document.getElementsByClassName('notify__container')[0]
@@ -75,6 +72,18 @@ notify = {
     display_notify: function () {
         container = document.getElementsByClassName('notify__container')[0]
         container.lastElementChild.style.display = 'block'
+
+        // psudo element (::after) for progress bar
+        let progressBarTimeout = self.notify.config.timeout
+        setTimeout(function () {
+            container.lastElementChild.style.setProperty('--jsProgressBarWidth', '0')
+            container.lastElementChild.style.setProperty('--jsProgressBarTimeout', 'all ' + progressBarTimeout + 'ms linear 0s')
+        }, 10)
+
+        // remove first noty after timeout
+        setTimeout(function () {
+            container.firstElementChild.remove()
+        }, self.notify.config.timeout)
     },
     html_layout: function (html = null) {
         if (html) {
