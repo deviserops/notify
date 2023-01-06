@@ -33,6 +33,12 @@
     cursor: pointer;
     border-radius: 2px;
     width: 310px;
+
+    /* Animation effect slide from top */
+    overflow: hidden;
+    height: var(--notifyAreaHeight, auto); /* Convert to 100% */
+    transition: .5s ease;
+    padding: var(--notifyAreaPadding, 0 10px); /* Convert to (10px 10px) */
 }
 
 .notify__container .notify__danger::after,
@@ -45,10 +51,10 @@
     left: 0px;
     bottom: 0px;
     background-color: rgb(0, 0, 0);
-    width: var(--jsProgressBarWidth, 100%);
+    width: var(--jsProgressBarWidth, 100%); /* these are js variables and default value */
     height: 3px;
     opacity: 0.2;
-    transition: var(--jsProgressBarTimeout, 'all 4000ms linear 0s');
+    transition: var(--jsProgressBarTimeout, 'all 4000ms linear 0s'); /* these are js variables and default value */
 }
 
 
@@ -80,8 +86,4 @@
     border: 1px solid rgb(204, 204, 204);
     background-color: rgb(255, 255, 255);
     color: rgb(68, 68, 68);
-}
-
-.notify__message {
-    padding: 10px;
 }

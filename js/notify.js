@@ -76,13 +76,25 @@ notify = {
         // psudo element (::after) for progress bar
         let progressBarTimeout = self.notify.config.timeout
         setTimeout(function () {
+            // Animation effect slide from top
+            container.lastElementChild.style.setProperty('--notifyAreaHeight', 'auto')
+            container.lastElementChild.style.setProperty('--notifyAreaPadding', '10px 10px')
+
+            // bar animation
             container.lastElementChild.style.setProperty('--jsProgressBarWidth', '0')
             container.lastElementChild.style.setProperty('--jsProgressBarTimeout', 'all ' + progressBarTimeout + 'ms linear 0s')
         }, 10)
 
-        // remove first noty after timeout
+        /**
+         * Remove First Element after timeout is completed
+         * Also Apply animation before removing element
+         */
         setTimeout(function () {
-            container.firstElementChild.remove()
+            container.firstElementChild.style.setProperty('--notifyAreaHeight', '0')
+            container.firstElementChild.style.setProperty('--notifyAreaPadding', '0 10px')
+            setTimeout(function () {
+                container.firstElementChild.remove()
+            }, 500)
         }, self.notify.config.timeout)
     },
     html_layout: function (html = null) {
@@ -98,7 +110,7 @@ notify.setup({
     html: '<div class="notify__message">This i </div>'
 })
 notify.show('error', 'new')
-notify.show('info', 'new')
-notify.show('success', 'new')
-notify.show('warning', 'nesdw')
-notify.show('notice', 'newsdfff')
+// notify.show('info', 'new')
+// notify.show('success', 'new')
+// notify.show('warning', 'nesdw')
+// notify.show('notice', 'newsdfff')
