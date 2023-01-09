@@ -32,7 +32,7 @@ notify = {
 
         //html
         self.notify.append_html()   // add notify defailt and hide it
-        self.notify.append_notify_type(type_to_use) // append appropriate class according to notification to apply css
+        self.notify.append_notify_type(type_to_use, type) // append appropriate class according to notification to apply css
         self.notify.append_notify_message(message)
         self.notify.display_notify()
         //display noty
@@ -57,17 +57,26 @@ notify = {
         container = document.getElementsByClassName('notify__container')[0]
         container.lastElementChild.style.display = 'none'
     },
-    append_notify_type: function (type) {
+    append_notify_type: function (type_to_use, type) {
         let container = document.getElementsByClassName('notify__container')[0]
-        container.lastElementChild.className += ' notify__' + type
+        container.lastElementChild.className += ' notify__' + type_to_use
+
+        /**
+         * set icon and title if config
+         * @type {string}
+         */
+        if (!self.notify.config.icon) {
+            container.lastElementChild.getElementsByClassName('notify__icon')[0].style.display = 'none'
+        }
+        if (!self.notify.config.title) {
+            container.lastElementChild.getElementsByClassName('notify__title')[0].style.display = 'none'
+        } else {
+            container.lastElementChild.getElementsByClassName('notify__title')[0].textContent = type
+        }
     },
     append_notify_message: function (message) {
         let container = document.getElementsByClassName('notify__container')[0]
-        let total_container = container.getElementsByClassName('notify__message').length
-        let message_container = container.getElementsByClassName('notify__message')[total_container - 1]
-        if (message_container) {
-            message_container.textContent = message
-        }
+        container.lastElementChild.getElementsByClassName('notify__message')[0].textContent = message
     },
     display_notify: function () {
         container = document.getElementsByClassName('notify__container')[0]
@@ -83,7 +92,7 @@ notify = {
             // bar animation
             container.lastElementChild.style.setProperty('--jsProgressBarWidth', '0')
             container.lastElementChild.style.setProperty('--jsProgressBarTimeout', 'all ' + progressBarTimeout + 'ms linear 0s')
-        }, 10)
+        }, 100)
 
         /**
          * Remove First Element after timeout is completed
@@ -93,7 +102,7 @@ notify = {
             container.firstElementChild.style.setProperty('--notifyAreaHeight', '0')
             container.firstElementChild.style.setProperty('--notifyAreaPadding', '0 10px')
             setTimeout(function () {
-                container.firstElementChild.remove()
+                // container.firstElementChild.remove()
             }, 500)
         }, self.notify.config.timeout)
     },
@@ -106,11 +115,9 @@ notify = {
     }
 }
 
-notify.setup({
-    html: '<div class="notify__message">This i </div>'
-})
-notify.show('error', 'new')
-// notify.show('info', 'new')
-// notify.show('success', 'new')
-// notify.show('warning', 'nesdw')
-// notify.show('notice', 'newsdfff')
+notify.setup()
+notify.show('success', 'This is success message')
+notify.show('error', 'This is error message')
+notify.show('warning', 'This is warning message')
+notify.show('info', 'This is info message')
+notify.show('notice', 'This is notice message')

@@ -22,6 +22,10 @@
     align-items: center;
 }
 
+.notify__container .notify__title:first-letter, .notify__container .notify__message:first-letter {
+    text-transform: uppercase;
+}
+
 .notify__container .notify__danger,
 .notify__container .notify__info,
 .notify__container .notify__success,
