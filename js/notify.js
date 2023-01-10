@@ -102,7 +102,7 @@ notify = {
             container.firstElementChild.style.setProperty('--notifyAreaHeight', '0')
             container.firstElementChild.style.setProperty('--notifyAreaPadding', '0 10px')
             setTimeout(function () {
-                // container.firstElementChild.remove()
+                container.firstElementChild.remove()
             }, 500)
         }, self.notify.config.timeout)
     },
