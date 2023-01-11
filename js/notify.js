@@ -114,10 +114,3 @@ notify = {
             '<div class="notify__title"></div><div class="notify__message">test</div></div></div>'
     }
 }
-
-notify.setup()
-notify.show('success', 'This is success message')
-notify.show('error', 'This is error message')
-notify.show('warning', 'This is warning message')
-notify.show('info', 'This is info message')
-notify.show('notice', 'This is notice message')
