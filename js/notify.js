@@ -82,27 +82,38 @@ notify = {
         container = document.getElementsByClassName('notify__container')[0]
         container.lastElementChild.style.display = 'block'
 
+        self.notify.applyAnimate(container.lastElementChild)
+
+    },
+    applyAnimate: function (element) {
         // psudo element (::after) for progress bar
         let progressBarTimeout = self.notify.config.timeout
+
+        /**
+         * Because css take time on browser so apply little timeout for animation
+         */
         setTimeout(function () {
             // Animation effect slide from top
-            container.lastElementChild.style.setProperty('--notifyAreaHeight', 'auto')
-            container.lastElementChild.style.setProperty('--notifyAreaPadding', '10px 10px')
+            element.style.setProperty('--notifyAreaHeight', 'auto')
+            element.style.setProperty('--notifyAreaPadding', '10px 10px')
 
             // bar animation
-            container.lastElementChild.style.setProperty('--jsProgressBarWidth', '0')
-            container.lastElementChild.style.setProperty('--jsProgressBarTimeout', 'all ' + progressBarTimeout + 'ms linear 0s')
-        }, 100)
+            element.style.setProperty('--jsProgressBarWidth', '0')
+            element.style.setProperty('--jsProgressBarTimeout', 'all ' + progressBarTimeout + 'ms linear 0s')
 
+            self.notify.removeAnimate(element)
+        }, 100)
+    },
+    removeAnimate: function (element) {
         /**
          * Remove First Element after timeout is completed
          * Also Apply animation before removing element
          */
         setTimeout(function () {
-            container.firstElementChild.style.setProperty('--notifyAreaHeight', '0')
-            container.firstElementChild.style.setProperty('--notifyAreaPadding', '0 10px')
+            element.style.setProperty('--notifyAreaHeight', '0')
+            element.style.setProperty('--notifyAreaPadding', '0 10px')
             setTimeout(function () {
-                container.firstElementChild.remove()
+                element.remove()
             }, 500)
         }, self.notify.config.timeout)
     },
@@ -112,5 +123,5 @@ notify = {
         }
         return '<div class="notify__area"><div class="notify__icon"></div><div class="notify__content">' +
             '<div class="notify__title"></div><div class="notify__message">test</div></div></div>'
-    }
+    },
 }
