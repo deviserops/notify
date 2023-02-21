@@ -76,7 +76,7 @@ notify = {
     },
     append_notify_message: function (message) {
         let container = document.getElementsByClassName('notify__container')[0]
-        container.lastElementChild.getElementsByClassName('notify__message')[0].textContent = message
+        container.lastElementChild.getElementsByClassName('notify__message')[0].innerHTML = message
     },
     display_notify: function () {
         container = document.getElementsByClassName('notify__container')[0]
