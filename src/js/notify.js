@@ -21,7 +21,7 @@ class Notify {
     }
 
     positions(position) {
-        let positions = ['top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-center', 'bottom-right', 'left-middle', 'right-middle']
+        let positions = ['top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-center', 'bottom-right', 'left-middle', 'right-middle', 'center-middle']
         return positions.includes(position) ? position : 'top-right'
     }
 
