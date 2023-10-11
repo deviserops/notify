@@ -8,13 +8,14 @@ class Notify {
             global._notify = this;
         }
 
-        let custom_html = (conf !== null && typeof conf != 'undefined' && conf.html) ? conf.html : null
-        let position = (conf !== null && typeof conf != 'undefined' && conf.position) ? conf.position : null
+
+        let custom_html = conf && conf.html ? conf.html : null
+        let position = conf && conf.position ? conf.position : null
         this.config = {
-            title: (conf !== null && typeof conf != 'undefined' && typeof conf.title == "boolean") ? conf.title : true,
-            icon: (conf !== null && typeof conf != 'undefined' && typeof conf.icon == "boolean") ? conf.icon : true,
+            title: !(conf && conf.title === false),
+            icon: !(conf && conf.icon === false),
             html: _notify.html_layout(custom_html),
-            timeout: (conf !== null && typeof conf != 'undefined' && conf.timeout) ? conf.timeout : 4000, // auto remove timeout (in ms),
+            timeout: conf && conf.timeout ? conf.timeout : 4000, // auto remove timeout (in ms),
             position: _notify.positions(position)
         }
     }
