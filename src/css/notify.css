@@ -70,7 +70,7 @@
     box-shadow: rgb(0 0 0 / 10%) 0px 2px 4px;
     cursor: pointer;
     border-radius: 2px;
-    width: 310px;
+    max-width: 310px;
 
     /* Animation effect slide from top */
     overflow: hidden;
