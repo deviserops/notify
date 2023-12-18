@@ -66,7 +66,7 @@
 .notify__container .notify__warning,
 .notify__container .notify__notice {
     position: relative;
-    margin: 0px;
+    margin: 0px 0px 5px 0px;
     box-shadow: rgb(0 0 0 / 10%) 0px 2px 4px;
     cursor: pointer;
     border-radius: 2px;
