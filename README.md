@@ -9,17 +9,13 @@ Introducing notify to display popup notification on your web page.
     * ```<script src="css/notify.js">```
 * Configuration
     * In Your js file setup notify
-    * `notify.setup()`
+    * `let notify = new Notify(config = {})`
     * To define options
       ```javascript
-        notify.setup({
-            title: true,
-            icon: true,
-            html: '{your-html}',
-            timeout: '{notify-timeout}',
-            position: '{position}'
-        })
-        ```
+      let config = {
+        title: false  
+      }
+      ```
       Options:
       ```
         | Option  | type    | Default      | Description                                                                                                              |
