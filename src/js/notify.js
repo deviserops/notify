@@ -143,3 +143,17 @@ class Notify {
             '<div class="notify__title"></div><div class="notify__message">test</div></div></div>'
     }
 }
+
+(function () {
+    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+        module.exports = Notify;
+    } else {
+        if (typeof define === 'function' && define.amd) {
+            define([], function () {
+                return Notify;
+            });
+        } else {
+            window.notify = Notify;
+        }
+    }
+})();

@@ -1,0 +1,23 @@
+{
+  "name": "@deviser/notify",
+  "version": "1.0.4",
+  "description": "Introducing notify to display popup notification on your web page.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deviserops/notify.git"
+  },
+  "keywords": [
+    "Dev"
+  ],
+  "author": "Deviser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deviserops/notify/issues"
+  },
+  "homepage": "https://github.com/deviserops/notify#readme"
+}
