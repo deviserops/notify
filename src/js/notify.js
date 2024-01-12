@@ -1,4 +1,4 @@
-class Notify {
+export class Notify {
     constructor(conf = null) {
         if (typeof window !== 'undefined') {
             // Running in a browser environment
@@ -140,20 +140,6 @@ class Notify {
             return html
         }
         return '<div class="notify__area"><div class="notify__icon"></div><div class="notify__content">' +
-            '<div class="notify__title"></div><div class="notify__message">test</div></div></div>'
+            '<div class="notify__title"></div><div class="notify__message"></div></div></div>'
     }
 }
-
-(function () {
-    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
-        module.exports = Notify;
-    } else {
-        if (typeof define === 'function' && define.amd) {
-            define([], function () {
-                return Notify;
-            });
-        } else {
-            window.notify = Notify;
-        }
-    }
-})();

@@ -4,19 +4,23 @@ Introducing notify to display popup notification on your web page.
 
 ### How do I get set up? ###
 
-* Include css and js on your web page
+* Include css and js on your web page (For simple html website)
     * ```<link href="css/notify.css" rel="stylesheet">```
-    * ```<script src="css/notify.js">```
+    * ```<script src="js/notify.js" type="module"></script>```
+* `Node` Based applications
+    * ```npm i @deviser/notify```
 * Configuration
     * In Your js file setup notify
-    * `let notify = new Notify(config = {})`
-    * To define options
+      ```
+      let notify = new Notify(config)
+      ```
+    * To define `config`
       ```javascript
       let config = {
         title: false  
       }
       ```
-      Options:
+    * Options:
       ```
         | Option  | type    | Default      | Description                                                                                                              |
         |---------|---------|--------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -25,8 +29,9 @@ Introducing notify to display popup notification on your web page.
         | type    | string  | info         | you can use type options to display different notification.                                                              |
         | html    | string  | default-html | This will be custom html for your notification you need to add a class ```notify__message``` in your html do add message |
         | timeout | int     | 4000         | This is be timeout for notification to disappear                                                                         |
+        | position| string  | top-right    | The position of the notificatino where it will appears                                                                   |
       ```
-      Type Options: You can use any of the option from array to display a specific type of notifications
+    * Options (`type`): You can use any of the option from array to display a specific type of notifications
       ```
       'danger': ['danger', 'error'],
       'info': ['information', 'info', 'message'],
@@ -34,11 +39,10 @@ Introducing notify to display popup notification on your web page.
       'warning': ['warning'],
       'notice': ['notice']
       ```
-* Display Message
-  `notify.show(type, message)`
+* Display Message `notify.show(type, message)`
     * Examples:
       ```
-      notify.show(danger,'This is error message')
+      notify.show('danger','This is error message')
       notify.show('success', 'This is success message')
       notify.show('error', 'This is error message')
       notify.show('warning', 'This is warning message')
@@ -47,7 +51,7 @@ Introducing notify to display popup notification on your web page.
       ```
       ![alt text](./demo/images/demo.png "Title")
 
-      To change html to custom you need some classes for div to interact with notify, you can optionality use these but
+    * To change html to custom you need some classes for div to interact with notify, you can optionality use these but
       for message, class is required to display notify message
       ```
       Uses:                   Class Name
@@ -56,8 +60,7 @@ Introducing notify to display popup notification on your web page.
       For Title               notify__title           This will be default title based on type
       ```
 
-
-* There is no dependency unless you need to customize your custom html in notify
+* There is no dependency unless you need to customize your custom html in notify (required css only dependency)
 
 ### Contribution guidelines ###
 

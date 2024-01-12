@@ -1,6 +1,6 @@
 {
   "name": "@deviser/notify",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Introducing notify to display popup notification on your web page.",
   "main": "index.js",
   "type": "module",
