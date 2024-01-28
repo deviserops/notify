@@ -7,18 +7,15 @@
     <link rel="stylesheet" href="../src/css/notify.css">
 </head>
 <body>
-<script src="../src/js/notify.js" type="module"></script>
-<script>
-    let notify = null;
-    document.addEventListener('DOMContentLoaded', function () {
-        //Init app on DOM load
-        notify = new Notify()
-        notify.show('success', 'This is success message')
-        notify.show('error', 'This is error message')
-        notify.show('warning', 'This is warning message')
-        notify.show('info', 'This is info message')
-        notify.show('notice', 'This is notice message')
-    });
+<script type="module">
+    import {Notify} from '../src/js/notify.js'
+
+    const notify = new Notify()
+    notify.show('success', 'This is success message')
+    notify.show('error', 'This is error message')
+    notify.show('warning', 'This is warning message')
+    notify.show('info', 'This is info message')
+    notify.show('notice', 'This is notice message')
 </script>
 </body>
 </html>

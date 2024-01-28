@@ -1,26 +1,37 @@
 # Notify #
 
-Introducing notify to display popup notification on your web page.
+Introducing a lightweight and versatile JavaScript library that seamlessly integrates informative popup messages into
+your web applications. Built with efficiency and flexibility in mind
 
-### How do I get set up? ###
+### How do I get set up?  ###
 
-* Include css and js on your web page (For simple html website)
+* Enjoy immediate integration without external dependencies: (For simple html website)
     * ```<link href="css/notify.css" rel="stylesheet">```
     * ```<script src="js/notify.js" type="module"></script>```
-* `Node` Based applications
+    * ```javascript 
+      <script type="module">
+        // important to import first before use anywhere in project
+        import {Notify} from './notify.js'
+        const notify = new Notify()
+      
+        // uses
+        notify.show('success', 'This is success message')
+      </script>
+      ```
+* For `Node` Based applications like react, view and so.
     * ```npm i @deviser/notify```
 * Configuration
     * In Your js file setup notify
-      ```
+      ```javascript
       let notify = new Notify(config)
       ```
-    * To define `config`
+    * Experience effortless customization using `config`
       ```javascript
-      let config = {
-        title: false  
-      }
+        let config = {
+            title: false
+        }
       ```
-    * Options:
+    * Embrace a user-centric approach to communication:
       ```
         | Option  | type    | Default      | Description                                                                                                              |
         |---------|---------|--------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -41,7 +52,7 @@ Introducing notify to display popup notification on your web page.
       ```
 * Display Message `notify.show(type, message)`
     * Examples:
-      ```
+      ```javascript
       notify.show('danger','This is error message')
       notify.show('success', 'This is success message')
       notify.show('error', 'This is error message')
