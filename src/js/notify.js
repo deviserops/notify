@@ -20,6 +20,15 @@ export class Notify {
         }
     }
 
+    registerRemoveEvents() {
+        let _notify_area = document.getElementsByClassName("notify__area")
+        for (const [key, element] of Object.entries(_notify_area)) {
+            element.addEventListener('click', function () {
+                _notify.removeAnimate(element, 0)
+            })
+        }
+    }
+
     positions(position) {
         let positions = ['top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-center', 'bottom-right', 'left-middle', 'right-middle', 'center-middle']
         return positions.includes(position) ? position : 'top-right'
@@ -48,6 +57,7 @@ export class Notify {
         _notify.append_notify_message(message)
         _notify.display_notify()
         //display noty
+        _notify.registerRemoveEvents()
     }
 
     append_html() {
@@ -121,18 +131,19 @@ export class Notify {
         }, 100)
     }
 
-    removeAnimate(element) {
+    removeAnimate(element, time = null) {
         /**
          * Remove First Element after timeout is completed
          * Also Apply animation before removing element
          */
+        let timeout = time != null ? time : _notify.config.timeout
         setTimeout(function () {
             element.style.setProperty('--notifyAreaHeight', '0')
             element.style.setProperty('--notifyAreaPadding', '0 10px')
             setTimeout(function () {
                 element.remove()
             }, 500)
-        }, _notify.config.timeout)
+        }, timeout)
     }
 
     html_layout(html = null) {

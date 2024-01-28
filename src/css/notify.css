@@ -88,7 +88,7 @@
     position: absolute;
     left: 0px;
     bottom: 0px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(73 73 73);
     width: var(--jsProgressBarWidth, 100%); /* these are js variables and default value */
     height: 3px;
     opacity: 0.2;
@@ -97,31 +97,31 @@
 
 
 .notify__container .notify__danger {
-    border: 1px solid rgb(226, 83, 83);
-    background-color: rgb(255, 129, 129);
-    color: rgb(255, 255, 255);
+    border: 1px solid rgb(241, 183, 193);
+    background-color: rgb(250, 228, 232);
+    color: rgb(176, 61, 80);
 }
 
 .notify__container .notify__info {
-    border: 1px solid rgb(59, 173, 214);
-    background-color: rgb(120, 197, 231);
-    color: rgb(255, 255, 255);
+    border: 1px solid rgb(187, 225, 237);
+    background-color: rgb(229, 244, 248);
+    color: rgb(59, 126, 148);
 }
 
 .notify__container .notify__success {
-    border: 1px solid rgb(124, 221, 119);
-    background-color: rgb(188, 245, 188);
-    color: darkgreen;
+    border: 1px solid rgb(161, 219, 184);
+    background-color: rgb(220, 241, 228);
+    color: rgb(12, 98, 46);
 }
 
 .notify__container .notify__warning {
-    border: 1px solid rgb(255, 194, 55);
-    background-color: rgb(255, 234, 168);
-    color: rgb(130, 98, 0);
+    border: 1px solid rgb(241, 183, 193);
+    background-color: rgb(251, 241, 221);
+    color: rgb(137, 97, 16);
 }
 
 .notify__container .notify__notice {
-    border: 1px solid rgb(204, 204, 204);
-    background-color: rgb(255, 255, 255);
-    color: rgb(68, 68, 68);
+    border: 1px solid rgb(217, 219, 224);
+    background-color: rgb(241, 242, 243);
+    color: rgb(64, 66, 71);
 }
