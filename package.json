@@ -1,7 +1,7 @@
 {
   "name": "@deviser/notify",
-  "version": "1.0.6",
-  "description": "Introducing notify to display popup notification on your web page.",
+  "version": "1.0.7",
+  "description": "Introducing a lightweight and versatile JavaScript library that seamlessly integrates informative popup messages into\nyour web applications. Built with efficiency and flexibility in mind.",
   "main": "index.js",
   "type": "module",
   "scripts": {

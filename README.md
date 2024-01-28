@@ -1,7 +1,7 @@
 # Notify #
 
 Introducing a lightweight and versatile JavaScript library that seamlessly integrates informative popup messages into
-your web applications. Built with efficiency and flexibility in mind
+your web applications. Built with efficiency and flexibility in mind.
 
 ### How do I get set up?  ###
 
